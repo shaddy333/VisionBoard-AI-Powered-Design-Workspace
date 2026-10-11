@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>VisionBoard</title>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700&family=Instrument+Sans:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css"></head>
+<body>
+<header>
+ <span class="logo">VisionBoard</span>
+ <input id="pname" aria-label="Project name" value="Untitled board">
+ <div class="grp"><button id="undo" title="Undo (Ctrl+Z)">↶ Undo</button><button id="redo" title="Redo (Ctrl+Shift+Z)">↷ Redo</button></div>
+ <div class="grp"><button id="zo" aria-label="Zoom out">−</button><button id="zv" title="Fit to screen">100%</button><button id="zi" aria-label="Zoom in">+</button></div>
+ <span class="sp"></span>
+ <div class="grp"><button id="theme" aria-label="Toggle theme">◐</button><button id="export">Export PNG</button><button class="pri" id="save">Save project</button></div>
+</header>
+<main>
+ <aside id="left">
+  <section><h3>Add</h3><div class="tools">
+   <button data-add="text">Text</button><button data-add="rect">Rectangle</button>
+   <button data-add="circle">Circle</button><button id="up">Upload image</button></div>
+   <input type="file" id="file" accept="image/*" multiple hidden>
+   <p style="color:var(--mute);margin:8px 0 0;font-size:12px">Drop images onto the board to add them.</p></section>
+  <section><h3>Templates</h3><div class="tpl" id="tpls"></div></section>
+  <section><h3>Layers</h3><div id="layers"></div></section>
+  <section><h3>Saved projects</h3><div id="projs"></div></section>
+ </aside>
+ <div id="stagewrap"><div id="pad"><div id="sizer"><div id="board"></div></div></div></div>
+ <aside id="right">
+  <section id="props"><h3>Selection</h3><div id="pbody" style="color:var(--mute)">Select an element to edit it.</div></section>
+  <section><h3>Design assistant</h3>
+   <div id="chat"></div>
+   <div class="chips" id="chips" style="margin:6px 0"></div>
+   <form id="ask"><input id="q" placeholder="Ask for a change or an idea" aria-label="Ask assistant"><button class="pri">Send</button></form></section>
+ </aside>
+</main>
+<nav id="tabs"><button data-tab="left">Add &amp; layers</button><button data-tab="right">Edit &amp; assistant</button></nav>
+<div id="toast" role="status"></div>
+<script src="js/state.js"></script>
+<script src="js/interactions.js"></script>
+<script src="js/templates.js"></script>
+<script src="js/storage.js"></script>
+<script src="js/ui.js"></script>
+<script src="js/assistant.js"></script>
+<script src="js/main.js"></script></body></html>
